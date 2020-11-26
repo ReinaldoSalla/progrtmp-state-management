@@ -1,0 +1,5 @@
+.list__main-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 5rem;
+}

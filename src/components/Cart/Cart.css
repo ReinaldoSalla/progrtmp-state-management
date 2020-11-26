@@ -1,0 +1,9 @@
+.cart__main-wrapper {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid black;
+  border-radius: 50%;
+}

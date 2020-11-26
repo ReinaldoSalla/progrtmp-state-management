@@ -1,0 +1,6 @@
+.element__main-wrapper {
+  flex: 1 1 300px;
+  margin: 1rem;
+  border: 1px solid black;
+}
+
