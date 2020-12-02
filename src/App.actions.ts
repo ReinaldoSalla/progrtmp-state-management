@@ -1,13 +1,10 @@
-const addProduct = (state: any, payload: any): any => {
-  console.log(state);
-  return {
-    ...state
-  }
-}
+import { State } from './App.types';
 
-// const addProduct = (state: any, payload: any): any => ({
-//   ...state,
-//   products: [...state.products, payload]
-// });
+const addProduct = (state: State, product: string): State => {
+  return {
+    ...state,
+    products: [...state.products, product]
+  };
+}
 
 export { addProduct };

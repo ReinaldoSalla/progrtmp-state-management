@@ -45,7 +45,7 @@ a {
   opacity: 0.5;
 } */
 
-.app__cart {
+.app__cart-button {
   position: fixed;
   right: 1rem;
   top: 1rem;
