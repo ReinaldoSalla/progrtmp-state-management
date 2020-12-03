@@ -1,10 +1,20 @@
 import { State } from './App.types';
 
-const addProduct = (state: State, product: string): State => {
+const addProductToCart = (state: State, product: string): State => {
   return {
     ...state,
-    products: [...state.products, product]
+    productsInCart: [...state.productsInCart, product]
   };
 }
 
-export { addProduct };
+const loadProductsFromApi = (state: State, products: Array<any>) => {
+  return {
+    ...state,
+    products: products
+  }
+}
+
+export { 
+  addProductToCart,
+  loadProductsFromApi 
+};

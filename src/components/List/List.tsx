@@ -1,5 +1,5 @@
 import React from 'react';
-import products from './List.constants';
+import productsInCart from './List.constants';
 import Element from '../Element';
 import './List.css';
 

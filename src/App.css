@@ -66,3 +66,8 @@ a {
   margin: 1rem;
   border: 1px solid black;
 }
+
+.app__product-img {
+  width: 250px;
+  height: 250px;
+}

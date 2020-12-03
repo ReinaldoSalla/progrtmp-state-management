@@ -1,4 +1,4 @@
-const products = new Array(12).fill(0).map((_) => (
+const productsInCart = new Array(12).fill(0).map((_) => (
   {
     name: 'product name',
     description: 'product description',
@@ -6,4 +6,4 @@ const products = new Array(12).fill(0).map((_) => (
   }
 ))
 
-export default products;
+export default productsInCart;

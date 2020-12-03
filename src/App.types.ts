@@ -1,16 +1,11 @@
-import CONSTANTS from './App.constants';
-
 interface State {
-  products: Array<string>;
-}
-
-interface ADD_PRODUCT {
-  type: typeof CONSTANTS.ADD_PRODUCT;
+  products: Array<any>;
+  productsInCart: Array<string>;
 }
 
 interface Action {
   type: string;
-  payload: string;
+  payload?: string;
 }
 
 export type {
