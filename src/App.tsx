@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, MouseEvent } from 'react';
+import React, { useEffect, useReducer, MouseEvent, ChangeEvent } from 'react';
 import CONSTANTS from './App.constants';
 import reducer from './App.reducer';
 import { initialState } from './App.init';
@@ -7,10 +7,17 @@ import './App.css';
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const onBuyClick = (event: MouseEvent<HTMLButtonElement>): void => {
+  const onClick = (event: MouseEvent<HTMLButtonElement>): void => {
     dispatch({ 
       type: CONSTANTS.ADD_PRODUCT_TO_CART, 
       payload: event.currentTarget.value 
+    });
+  };
+
+  const onChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+    dispatch({
+      type: CONSTANTS.FILTER_PRODUCTS,
+      payload: event.currentTarget.value
     })
   }
 
@@ -44,6 +51,15 @@ const App = () => {
         ))}
       </ul>
 
+      <label htmlFor='select'>Filter</label>
+      <select onChange={onChange} value={state.currentFilter} id='select'>
+        <option>all</option>
+        <option>men clothing</option>
+        <option>jewelery</option>
+        <option>electronics</option>
+        <option>women clothing</option>
+      </select>
+
       {state.products.length ? (
         <div className='app__products'>
           {state.products.map((product, index) => (
@@ -57,7 +73,7 @@ const App = () => {
               <button 
                 type='button'
                 value={product.title}
-                onClick={onBuyClick}
+                onClick={onClick}
               >
                 Buy
               </button>

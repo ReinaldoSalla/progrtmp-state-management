@@ -1,6 +1,7 @@
 interface State {
   products: Array<any>;
   productsInCart: Array<string>;
+  currentFilter: string;
 }
 
 interface Action {

@@ -1,7 +1,8 @@
 import CONSTANTS from './App.constants';
 import { 
   addProductToCart,
-  loadProductsFromApi 
+  loadProductsFromApi,
+  filterProducts
 } from './App.actions';
 import { State, Action } from './App.types';
 
@@ -11,6 +12,8 @@ const reducer = (state: State, action: any): State => {
       return addProductToCart(state, action.payload);
     case CONSTANTS.LOAD_PRODUCTS_FROM_API:
       return loadProductsFromApi(state, action.payload)
+    case CONSTANTS.FILTER_PRODUCTS:
+      return filterProducts(state, action.payload);
     default:
       return state;
   }
