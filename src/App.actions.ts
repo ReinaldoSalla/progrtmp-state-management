@@ -7,22 +7,27 @@ const addProductToCart = (state: State, product: string): State => {
   };
 }
 
-const loadProductsFromApi = (state: State, products: Array<any>): State => {
+const loadProductsFromApi = (state: State, productsFromApi: Array<any>): State => {
   return {
     ...state,
-    products: products
-  }
+    products: productsFromApi,
+    productsToRender: productsFromApi 
+  };
 };
 
 const filterProducts = (state: State, filterKeyword: string): State => {
-  console.log(state.products);
-  const filteredProducts = state.products.filter((product) => (
-    product.category === filterKeyword
-  ));
+  let filteredProducts;
+  if (filterKeyword === 'all') {
+    filteredProducts = state.products
+  } else {
+    filteredProducts = state.products.filter((product) => { 
+      return product.category === filterKeyword
+    });
+  }
   return {
     ...state,
     currentFilter: filterKeyword,
-    products: filteredProducts
+    productsToRender: filteredProducts
   };
 };
 

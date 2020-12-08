@@ -1,5 +1,6 @@
 interface State {
   products: Array<any>;
+  productsToRender: Array<any>;
   productsInCart: Array<string>;
   currentFilter: string;
 }

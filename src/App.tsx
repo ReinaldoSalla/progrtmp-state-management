@@ -60,9 +60,9 @@ const App = () => {
         <option>women clothing</option>
       </select>
 
-      {state.products.length ? (
+      {state.productsToRender.length ? (
         <div className='app__products'>
-          {state.products.map((product, index) => (
+          {state.productsToRender.map((product, index) => (
             <section className='app__product' key={index}>
               <h2>{product.title}</h2>
               <h3>{product.category}</h3>
