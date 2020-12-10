@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, MouseEvent, ChangeEvent } from 'react';
 import CONSTANTS from './App.constants';
 import reducer from './App.reducer';
 import { initialState } from './App.init';
+import formatTitle from './App.utils';
 import './App.css';
 
 const App = () => {
@@ -22,20 +23,26 @@ const App = () => {
   }
 
   useEffect(() => {
-    let unmounted = false;
-    const fetchData = async () => {
-      const res = await fetch('https://fakestoreapi.com/products');
-      const json = await res.json();
-      if (!unmounted) {
-        dispatch({
-          type: CONSTANTS.LOAD_PRODUCTS_FROM_API,
-          payload: json
-        });
+    let hasUnmounted = false;
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch('https://fakestoreapi.com/products');
+        const json = await res.json();
+        if (!hasUnmounted) {
+          dispatch({
+            type: CONSTANTS.LOAD_PRODUCTS_FROM_API,
+            payload: json
+          });
+        }
+      } catch (error) {
+        if (!hasUnmounted) {
+          console.error(error);
+        } 
       }
     };
-    fetchData();
+    fetchProducts();
     return () => {
-      unmounted = true;
+      hasUnmounted = true;
     };
   }, []);
 
@@ -64,13 +71,13 @@ const App = () => {
         <div className='app__products'>
           {state.productsToRender.map((product, index) => (
             <section className='app__product' key={index}>
-              <h2>{product.title}</h2>
+              <h2>{formatTitle(product.title, 3)}</h2>
               <h3>{product.category}</h3>
-              <p>${product.price}</p>
-              <p>{product.description}</p>
+              {/* <p>{product.description}</p> */}
               <img className='app__product-img' src={product.image} />
-              <br />
+              <p>${product.price}</p>
               <button 
+                className='app__button'
                 type='button'
                 value={product.title}
                 onClick={onClick}
