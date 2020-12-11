@@ -67,7 +67,8 @@ a {
   flex-direction: column;
   align-items: center;
   margin: 1rem;
-  border: 1px solid black;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 .app__product-img {
@@ -76,11 +77,19 @@ a {
 }
 
 .app__button {
+  font: inherit;
+  font-size: 14px;
   width: 7rem;
   height: 3rem;
   margin-bottom: 2rem;
   border: 1px solid black;
   border-radius: 20px;
   color: white;
-  background: black;
+  background: #332c2c;
+  transition: background 0.5s;
+}
+
+.app__button:hover {
+  cursor: pointer;
+  background: navy;
 }
