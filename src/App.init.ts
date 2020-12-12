@@ -5,6 +5,7 @@ const initialState: State = {
   productsToRender: [],
   productsInCart: [],
   currentFilter: 'all',
+  isCartVisible: false
 };
 
 export { initialState }

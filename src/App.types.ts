@@ -3,6 +3,7 @@ interface State {
   productsToRender: Array<any>;
   productsInCart: Array<string>;
   currentFilter: string;
+  isCartVisible: boolean;
 }
 
 interface Action {

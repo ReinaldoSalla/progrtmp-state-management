@@ -55,6 +55,13 @@ a {
   border-radius: 50%;
 }
 
+.app__cart {
+  position: fixed;
+  right: 0;
+  top: 6rem;
+  border: 1px solid black;
+}
+
 .app__products {
   display: flex;
   flex-wrap: wrap;

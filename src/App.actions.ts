@@ -31,8 +31,14 @@ const filterProducts = (state: State, filterKeyword: string): State => {
   };
 };
 
+const toggleCart = (state: State): State => ({
+  ...state,
+  isCartVisible: !state.isCartVisible
+})
+
 export { 
   addProductToCart,
   loadProductsFromApi,
-  filterProducts
+  filterProducts,
+  toggleCart
 };
